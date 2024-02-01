@@ -1,2 +1,11 @@
 name: lint,test,deploy
 on: [push, workflow_dispatch]
+jobs:
+   test:
+      name: Test
+      runs-on: ubuntu-latest
+      steps:
+         -  name: Checkout repo
+            usesß: actions/checkout@v3
+
+
