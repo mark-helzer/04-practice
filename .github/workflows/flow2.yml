@@ -1,9 +1,9 @@
-name: flow 2
-on: [push, workflow_dispatch]
+name: Issue report
+on: [issues, workflow_dispatch]
 jobs:
-   newjob:
-      name: Fred
+   Report:
+      name: report issues
       runs-on: ubuntu-latest
       steps:
-         - name: fred
-           run: npm ci
+         - name: report event
+           run: echo "${{github.event}}"
