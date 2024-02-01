@@ -1,0 +1,9 @@
+name: flow 2
+on: [push, workflow_dispatch]
+jobs:
+   newjob:
+      name: Fred
+      runs-on: ubuntu-latest
+      steps:
+         - name: fred
+           run: npm ci

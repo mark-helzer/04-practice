@@ -1,8 +1,28 @@
 name: lint,test,deploy
 on: [push, workflow_dispatch]
 jobs:
+   lint:
+      name: Lint
+      runs-on: ubuntu-latest
+      steps:
+         -  name: Checkout repo
+            uses: actions/checkout@v3
+         -  name: Install dependencies
+            run: npm ci
+         -  name: Lint
+            run: npm run lint
    test:
       name: Test
+      runs-on: ubuntu-latest
+      steps:
+         -  name: Checkout repo
+            uses: actions/checkout@v3
+         -  name: Install dependencies
+            run: npm ci
+         -  name: test
+            run: npm run test
+   deploy:
+      name: Deploy
       runs-on: ubuntu-latest
       steps:
          -  name: Checkout repo
@@ -11,13 +31,6 @@ jobs:
             uses: actions/setup-node@v3
             with:
                node-version: 20
-
-         -  name: Install dependencies
-            run: npm ci
-         -  name: run tests
-            run: npm test
-         -  name: Lint
-            run: npm run lint
          -  name: Build
             run: npm run build
                
